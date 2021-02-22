@@ -1,26 +1,33 @@
 import React from 'react';
 import icons from '../controllers/Icons';
-import Picture from './picture';
+import Image from './image';
+import Title from './title';
+import Back from './back';
 
 
 
 
 const Soup = () =>{
 
-    let pic_1 = ""
-    let pic_2 = ""
-
+    let completed = [];
+    let almacen = [];
     return(
-        <div className="Soup">
-            {icons.map((e) => <Picture
-                                icons = {e}
-                                key = {e.id}
-                                pic_1 = {pic_1}                     
-                                pic_2 = {pic_2}                     
-                            />
-                    )}
+        <div>
+            <Title/>
+            <div className="styleCuadro">
+                {icons.map(e => <Image
+                                    key={e.id}
+                                    image = {e.src}
+                                    almacen = {almacen}
+                                    completed = {completed}
+                                    ident = {e.ident}
+                                />)}
+                
+            </div>
+            <Back/>
         </div>
-)};
+    )    
+};
 
 export default Soup;
 

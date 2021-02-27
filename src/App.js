@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import MusicBar from './components/musicbar';
 import Soup from './components/Soup';
 import Home from './components/home';
 import Setting from './components/setting';
@@ -12,17 +13,20 @@ function App() {
 
   return (
     <Router>
-      <Route path="/" exact unique render={()=>{return (
-        <Fragment>
-          <Home/>
-        </Fragment> 
-          )}}>
-      </Route>
+      <MusicBar/>
+      <Switch>
+        <Route path="/" exact unique render={()=>{return (
+          <Fragment>
+            <Home/>
+          </Fragment> 
+            )}}>
+        </Route>
 
-      <Route path="/play" component={Soup}/>
-      <Route path="/scores" component={Score}/>
-      <Route path="/howplay" component={How}/>
-      <Route path="/setting" component={Setting}/>
+        <Route path="/play" component={Soup}/>
+        <Route path="/scores" component={Score}/>
+        <Route path="/howplay" component={How}/>
+        <Route path="/setting" component={Setting}/>
+      </Switch>
     </Router> 
   );
 }

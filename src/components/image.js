@@ -26,7 +26,7 @@ const Image = (props) =>{
                 almacen.pop()
                 setVisible(false)
             }
-        }, 1500);
+        }, 3000);
     }
     return(
         <Fragment>
